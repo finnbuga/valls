@@ -1,0 +1,611 @@
+// Bootstrap library.
+@import 'bootstrap';
+
+// Base-theme overrides.
+@import 'overrides';
+
+
+h2 {
+  font-family: @font-family-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+/*** HEADER ***/
+.navbar {
+  border: none;
+  background: @brand-primary;
+  font-family: @font-family-serif;
+}
+
+
+/*** BRANDING AREA ***/
+.navbar-header {
+  @media (min-width: @grid-float-breakpoint) {
+    float: none;
+  }
+
+  background: url(../img/bgheader.jpg) top no-repeat;
+  position: relative;
+
+  padding: 1rem 0 0 0;
+  @media (min-width: @grid-float-breakpoint) {
+    padding: 3rem 0;
+  }
+  text-align: center;
+
+  .logo {
+    margin: 0;
+    padding: 0;
+    img {
+      max-width: 90%;
+    }
+  }
+
+  .lead {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: @font-size-large;
+    font-weight: 500;
+    letter-spacing: 7px;
+    color: #a4816b;
+  }
+
+  .region-navigation {
+    display: none;
+
+    @media @normal {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 15px;
+      font-style: italic;
+      color: #e1d3ae;
+      a {
+        color: #e1d3ae;
+      }
+    }
+    @media @wide {
+      font-size: 17px;
+    }
+  }
+}
+
+
+/*** MAIN MENU ***/
+.navbar-bottom {
+  background: black;
+}
+
+.navbar-collapse {
+  ul.navbar-nav {
+    li {
+      a {
+        color: #707063;
+        text-transform: uppercase;
+        font-size: (@font-size-large + @font-size-base) / 2;
+        letter-spacing: .16rem;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &.active {
+          color: #c0c0b3;
+        }
+      }
+    }
+  }
+}
+
+
+/*** TOP BAR (HEADER) REGION ***/
+.view-front-banner {
+  .views-field-field-artist-and-title {
+    background: @light-background;
+    text-align: right;
+    font-size: @font-size-small;
+    padding: 0.8rem 2rem;
+  }
+  border-bottom: 1px solid #d5d5d5;
+}
+
+
+/*** PAGE TITLE ***/
+.page-header {
+  margin: 1.2em 0 .2em;
+  border: none;
+  font-family: @font-family-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+/*** FRONT PAGE ***/
+.front {
+  .page-header {
+    display: none;
+  }
+
+  .region-content {
+    padding: 20px 0;
+    .make-row(0);
+
+    .block {
+      .make-md-column(6, 40px);
+      text-align: justify;
+    }
+  }
+}
+
+
+/*** CONTACT PAGE ***/
+.page-node-861:not(.page-node-edit) {
+  .region-content {
+    .make-row(0);
+
+    .block {
+      .make-md-column(6, 0);
+      height: 285px;
+      overflow: hidden;
+    }
+    #block-system-main {
+      padding: 20px;
+      max-width: 570px;
+      background: @light-background;
+    }
+    #block-block-4 p {
+      margin: 0;
+    }
+  }
+}
+
+
+/*** PAGES WITH GREY BACKGROUND ***/
+.front {
+  .region-content {
+    background: linear-gradient(to bottom, @light-background 0%, white 100%);
+  }
+}
+.page-exhibitions,
+.page-fairs,
+.page-catalogues,
+.page-taxonomy-term:not(.page-taxonomy-term-edit) {
+  .region-content {
+    background: @light-background;
+  }
+}
+.front,
+.page-taxonomy-term:not(.page-taxonomy-term-edit),
+.node-type-work:not(.page-node-edit) {
+  .tabs--primary {
+    background: @light-background;
+    margin: 0;
+    padding-left: 20px;
+    li.active > a {
+      background: @light-background;
+    }
+  }
+}
+
+
+/*** INDIVIDUAL ARTWORK PAGE ***/
+.node-type-work:not(.page-node-edit) {
+  .page-header {
+    background: @light-background;
+    margin: 0;
+    font-weight: normal;
+
+    &.artist {
+      margin-top: 20px;
+      padding: 15px 20px 0;
+      font-size: @font-size-large;
+    }
+  }
+  h1 {
+    padding: 10px 20px 15px;
+    font-style: italic;
+    font-size: 17px;
+    text-transform: none;
+  }
+  .field {
+    margin-bottom: 1.3rem;
+  }
+  .field-label {
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .field-name-field-artist {
+    display: none;
+  }
+  .field-name-field-image {
+    overflow: hidden;
+    background-color: black;
+
+    .field-item,
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+
+/*** SELECTED WORKS PAGE & INDIVIDUAL EXHIBITION PAGE ***/
+.view-selected-works {
+
+  // Filters
+  > .view-header {
+
+    // - Position
+    .form-item {
+      float: left;
+      padding: 0;
+      margin: 0 -1px @padding-large 0;
+
+      &.views-reset-button {
+        clear: both;
+        @media @normal {
+          clear: none;
+        }
+      }
+    }
+
+    // - Style
+    select,
+    button {
+      padding-left: 1.2em;
+      padding-right: 1.2em;
+      background: @light-background;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      &::-ms-expand {
+        display: none;
+      }
+      background: url("../img/ddarrow.png") 94% 1px no-repeat @light-background;
+
+      &#edit-field-category-tid-selective {
+        width: 13em;
+        @media @normal {
+          border-top-left-radius: @border-radius-large;
+          border-bottom-left-radius: @border-radius-large;
+        }
+      }
+
+      &#edit-field-artist-tid-selective {
+        width: 16em;
+      }
+    }
+
+    input {
+      width: 16em;
+    }
+
+    button {
+      margin: 0;
+      @media @normal {
+        border-top-right-radius: @border-radius-large;
+        border-bottom-right-radius: @border-radius-large;
+      }
+    }
+  }
+
+  // Content
+  > .view-content {
+
+    // - Position
+    clear: both;
+    .make-row(@padding-large);
+
+    .views-row {
+      .make-md-column(6, @padding-large);
+      padding-top: 25px;
+      border-top: 1px solid @gray-lighter;
+      padding-bottom: @padding-large;
+      min-height: 210px;
+
+      .views-field-field-image {
+        @media (min-width: @screen-xs) {
+          float: left;
+          margin-right: @padding-large;
+        }
+      }
+      .views-field-field-sort-by-name,
+      .views-field-field-category {
+        display: none;
+      }
+    }
+
+    // - Style
+    .views-field-field-image img {
+      .borderAndShadow;
+    }
+    .artist {
+      text-transform: uppercase;
+    }
+    .title {
+      margin: 1rem 0 0;
+      font-size: @font-size-base;
+      font-style: italic;
+    }
+  }
+}
+
+.page-selected-works,
+.page-taxonomy-term {
+  .view-header {
+    margin-top: 1.5rem;
+    font-size: @font-size-large;
+  }
+}
+
+
+/*** SELECTED WORKS PAGE ***/
+.page-selected-works {
+  .page-header {
+    display: none;
+  }
+  .view-header {
+    margin: 1.5rem 0;
+  }
+}
+
+
+/*** INDIVIDUAL EXHIBITION PAGE ***/
+.page-taxonomy-term {
+  &:not(.page-taxonomy-term-edit) {
+    .page-header {
+      background: @light-background;
+      padding: 20px 20px 10px;
+      margin: 1.6rem 0 0;
+      font-size: 26px;
+      font-weight: normal;
+    }
+  }
+
+  .view-taxonomy-term-basic-info h2 {
+    display: none;
+  }
+
+  .view-content {
+    padding: 0 20px;
+
+    .views-row {
+      border-top: @borderStyle;
+    }
+  }
+  .views-field-nothing {
+    width: 300px;
+    padding: 20px;
+    margin: 0 20px 20px 0;
+    background: #e5dfdf;
+    font-size: 15px;
+    .dates {
+      font-weight: bold;
+    }
+  }
+  .views-field-field-body {
+    margin: 0 20px 20px 0;
+    font-size: 15px;
+  }
+
+  .views-field-nothing {
+    float: left;
+  }
+  .views-field-field-body {
+    min-width: 300px;
+  }
+
+  .view-footer {
+    clear: both;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+
+/*** EXHIBITIONS PAGE ***/
+.page-exhibitions {
+  .views-row {
+    border-top: 1px solid white;
+    border-bottom: @borderStyle;
+    padding: 2rem;
+  }
+
+  .views-field-field-image img {
+    .borderAndShadow;
+  }
+
+  .views-field-field-opening-dates {
+    margin: .5rem 0;
+  }
+
+  @media @tablet {
+    .views-row {
+      clear: both;
+      overflow: hidden;
+    }
+
+    .views-field-field-image {
+      float: left;
+      width: 150px;
+      margin-right: 3rem;
+    }
+
+    h2,
+    .views-field-field-opening-dates {
+      margin: .9rem 0;
+    }
+  }
+}
+
+
+/*** FAIRS PAGE ***/
+.page-fairs {
+  .views-row {
+    border-top: 1px solid white;
+    border-bottom: @borderStyle;
+    padding: 2rem;
+  }
+
+  .views-field-field-fair-logo img {
+    .borderAndShadow;
+    border: none;
+  }
+
+  .views-field-field-fair-opening-dates {
+    margin: .5rem 0;
+  }
+
+  @media @tablet {
+    .views-row {
+      clear: both;
+      overflow: hidden;
+    }
+
+    .views-field-field-fair-logo {
+      float: left;
+      margin-right: 3rem;
+    }
+
+    h2,
+    .views-field-field-fair-opening-dates {
+      margin: .9rem 0;
+    }
+  }
+}
+
+
+/*** CATALOGUES PAGE ***/
+.page-catalogues {
+  .view-content {
+    .make-row(0);
+    padding-bottom: 4rem;
+    text-align: center;
+    img {
+      margin: 0 auto;
+    }
+
+    .views-row {
+      .make-sm-column(6);
+      .make-md-column(4);
+      border-right: 1px solid white;
+      padding-top: 4rem;
+
+      .views-field-field-catalogue-cover-image img {
+        .borderAndShadow;
+      }
+
+      h2 {
+        font-size: 1.9rem;
+        font-weight: normal;
+      }
+
+      .views-field-field-catalogue-summary {
+        font-size: @font-size-small;
+        margin-bottom: 1rem;
+      }
+      .views-field-field-catalogue-pdf a {
+        .btn;
+        .btn-primary;
+      }
+    }
+  }
+}
+
+
+/*** TAXONOMIES ADMIN PAGE ***/
+.page-admin-structure-taxonomy:not(.admin-menu) {
+  .region-help,
+  .tabledrag-toggle-weight-wrapper {
+    display: none;
+  }
+}
+
+
+/*** NODE & TAXONOMY EDIT FORMS ***/
+// Hide the help info on file upload fields
+.form-type-managed-file .help-block {
+  display: none;
+}
+// Hide taxonomy hierarchy and order
+.page-taxonomy-term-edit,
+.page-admin-structure-taxonomy-exhibitions-add {
+  #edit-relations {
+    display: none;
+  }
+}
+// Hide primary tabs when adding a new taxonomy. They are confusing and not useful
+.page-admin-structure-taxonomy-exhibitions-add {
+  .tabs--primary {
+    display: none;
+  }
+}
+
+
+/*** FOOTER ***/
+.footer {
+  font-size: @font-size-small;
+  color: @gray-light;
+}
+
+
+/*** BLOCKS ***/
+// Catalogues block on the front page
+#block-views-latest-catalogue-block {
+  .block-title {
+    @media @normal {
+      margin-top: 0;
+    }
+    font-weight: normal;
+  }
+
+  .views-field {
+    float: left;
+  }
+
+  img {
+    .borderAndShadow;
+    margin-right: 1rem;
+  }
+}
+
+// Picture block on the About page
+#block-block-3 {
+  float: left;
+  margin: 12px 30px 20px 0;
+  .borderAndShadow;
+}
+
+// User links in footer
+#block-system-user-menu {
+  ul {
+    margin-left: -7px;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+// Logos block in footer
+#block-block-6 {
+  float: right;
+}
+
+
+/*** ??? ***/
+.page-focal-point-preview .focal_point_examples {
+  h2:first-child,
+  div:first-child {
+    display: none;
+  }
+}
