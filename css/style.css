@@ -8114,6 +8114,10 @@ fieldset[disabled] .page-catalogues .view-content .views-row .views-field-field-
   color: #79001a;
   background-color: #fff;
 }
+/*** CONTENT ADMIN PAGE ***/
+.page-admin-content .action-links {
+  display: none;
+}
 /*** TAXONOMIES ADMIN PAGE ***/
 .page-admin-structure-taxonomy:not(.admin-menu) .region-help,
 .page-admin-structure-taxonomy:not(.admin-menu) .tabledrag-toggle-weight-wrapper {
