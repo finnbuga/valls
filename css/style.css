@@ -7928,6 +7928,9 @@ h2 {
   }
 }
 /*** FAIRS PAGE ***/
+.page-fairs.logged-in #block-system-main {
+  display: none;
+}
 .page-fairs .views-row {
   border-top: 1px solid white;
   border-bottom: 1px solid #ddd;
@@ -7958,6 +7961,9 @@ h2 {
   }
 }
 /*** CATALOGUES PAGE ***/
+.page-catalogues.logged-in #block-system-main {
+  display: none;
+}
 .page-catalogues .view-content {
   margin-left: 0;
   margin-right: 0;

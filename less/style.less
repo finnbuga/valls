@@ -451,6 +451,11 @@ h2 {
 
 /*** FAIRS PAGE ***/
 .page-fairs {
+  // Hide the page main content for logged in users (they will only see the block)
+  &.logged-in #block-system-main {
+    display: none;
+  }
+
   .views-row {
     border-top: 1px solid white;
     border-bottom: @borderStyle;
@@ -487,6 +492,11 @@ h2 {
 
 /*** CATALOGUES PAGE ***/
 .page-catalogues {
+  // Hide the page main content for logged in users (they will only see the block)
+  &.logged-in #block-system-main {
+    display: none;
+  }
+
   .view-content {
     .make-row(0);
     padding-bottom: 4rem;
