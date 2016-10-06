@@ -5,15 +5,35 @@
  */
 
 /**
- * Add font
+ * hook_preprocess_page()
  */
 function valls_preprocess_page(&$vars, $hook) {
-  drupal_add_js('//use.typekit.net/nwe1kps.js', 'external');
-  if (!empty($vars['node']) && $vars['node']->type == 'work' && !empty($vars['node']->field_artist_name['und'][0]['value'])) {
-    $artist = empty($vars['node']->field_artist_years['und'][0]['value']) ?
-      $vars['node']->field_artist_name['und'][0]['value'] :
-      $vars['node']->field_artist_name['und'][0]['value'] . ' ' . $vars['node']->field_artist_years['und'][0]['value'];
+  _valls_add_font();
 
-    $vars['title_prefix'] = '<div class="page-header artist">' . $artist . '</div>';
+  if (!empty($vars['node']) && $vars['node']->type == 'work') {
+    _valls_alter_work_title($vars);
   }
+}
+
+/**
+ * Add artist data to the Artwork title
+ */
+function _valls_alter_work_title(&$vars) {
+  if (!empty($vars['node']->field_artist_name['und'][0]['value'])) {
+    $vars['title_prefix'] = '<div class="page-header artist">';
+    $vars['title_prefix'] .= '<div class="artist-name">' . $vars['node']->field_artist_name['und'][0]['value'] . '</div>';
+
+    if (!empty($vars['node']->field_artist_years['und'][0]['value'])) {
+      $vars['title_prefix'] .= '<div class="artist-years">' . $vars['node']->field_artist_years['und'][0]['value'] . '</div>';
+    }
+
+    $vars['title_prefix'] .= '</div>';
+  }
+}
+
+/**
+ * Add font
+ */
+function _valls_add_font() {
+  drupal_add_js('//use.typekit.net/nwe1kps.js', 'external');
 }
